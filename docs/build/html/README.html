@@ -1,0 +1,231 @@
+
+
+<!DOCTYPE html>
+<html class="writer-html5" lang="en" data-content_root="./">
+<head>
+  <meta charset="utf-8" /><meta name="viewport" content="width=device-width, initial-scale=1" />
+
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>bioactivity_analysis &mdash; Bioactivity Analysis 1.0 documentation</title>
+      <link rel="stylesheet" type="text/css" href="_static/pygments.css?v=80d5e7a1" />
+      <link rel="stylesheet" type="text/css" href="_static/css/theme.css?v=e59714d7" />
+
+  
+      <script src="_static/jquery.js?v=5d32c60e"></script>
+      <script src="_static/_sphinx_javascript_frameworks_compat.js?v=2cd50e6c"></script>
+      <script src="_static/documentation_options.js?v=f2a433a1"></script>
+      <script src="_static/doctools.js?v=9a2dae69"></script>
+      <script src="_static/sphinx_highlight.js?v=dc90522c"></script>
+      <script crossorigin="anonymous" integrity="sha256-Ae2Vz/4ePdIu6ZyI/5ZGsYnb+m0JlOmKPjt6XZ9JJkA=" src="https://cdnjs.cloudflare.com/ajax/libs/require.js/2.3.4/require.min.js"></script>
+    <script src="_static/js/theme.js"></script>
+    <link rel="index" title="Index" href="genindex.html" />
+    <link rel="search" title="Search" href="search.html" />
+    <link rel="prev" title="&lt;no title&gt;" href="index.html" /> 
+</head>
+
+<body class="wy-body-for-nav"> 
+  <div class="wy-grid-for-nav">
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+
+          
+          
+          <a href="index.html" class="icon icon-home">
+            Bioactivity Analysis
+          </a>
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" aria-label="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+        </div><div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
+              <p class="caption" role="heading"><span class="caption-text">Contents:</span></p>
+<ul class="current">
+<li class="toctree-l1 current"><a class="current reference internal" href="#">bioactivity_analysis</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="#features">Features</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#relationship-between-pubchem-and-chembl">Relationship Between PubChem and ChEMBL</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#pubchem-imports-chembl-data">PubChem Imports ChEMBL Data:</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#chembl-data-in-pubchem">ChEMBL Data in PubChem:</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#no-live-synchronization">No Live Synchronization:</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#key-differences-between-pubchem-and-chembl">Key Differences Between PubChem and ChEMBL</a></li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap"><nav class="wy-nav-top" aria-label="Mobile navigation menu" >
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="index.html">Bioactivity Analysis</a>
+      </nav>
+
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          <div role="navigation" aria-label="Page navigation">
+  <ul class="wy-breadcrumbs">
+      <li><a href="index.html" class="icon icon-home" aria-label="Home"></a></li>
+      <li class="breadcrumb-item active">bioactivity_analysis</li>
+      <li class="wy-breadcrumbs-aside">
+            <a href="_sources/README.md.txt" rel="nofollow"> View page source</a>
+      </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+             
+  <section class="tex2jax_ignore mathjax_ignore" id="bioactivity-analysis">
+<h1>bioactivity_analysis<a class="headerlink" href="#bioactivity-analysis" title="Link to this heading"></a></h1>
+<p>bioactivity_analysis/</p>
+<p>├── bioactivity_analysis/       # Main package directory
+│   ├── <strong>init</strong>.py             # Marks as a Python package
+│   ├── core.py                 # Core logic for fetching data
+│   ├── utils.py                # Helper functions (e.g., file saving, visualization)
+│   ├── main.py                 # Entry point for CLI and notebook detection
+│   └── notebook_detect.py      # Jupyter notebook detection logic
+├── tests/                      # Unit test directory
+│   ├── <strong>init</strong>.py             # Marks as a Python package
+│   ├── test_core.py            # Unit tests for core.py
+│   └── test_utils.py           # Unit tests for utils.py
+├── docs/                       # Sphinx documentation directory
+│   ├── conf.py                 # Sphinx configuration
+│   ├── index.rst               # Main documentation index
+│   └── Makefile                # For building docs locally
+├── .github/
+│   └── workflows/
+│       └── test.yml            # GitHub Actions for testing
+├── environment.yml             # Conda environment file
+├── requirements.txt            # Additional pip dependencies
+├── README.md                   # Project README
+└── setup.py                    # Installation script</p>
+<section id="features">
+<h2>Features<a class="headerlink" href="#features" title="Link to this heading"></a></h2>
+<p>###Command-Line Arguments:</p>
+<ol class="arabic simple">
+<li><p>Specify the target UniProt ID and optional file output base name:</p></li>
+</ol>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>python<span class="w"> </span>bioactivity_script.py<span class="w"> </span>P00734<span class="w"> </span>--output<span class="w"> </span>bioactivity_comparison
+</pre></div>
+</div>
+<ol class="arabic simple" start="2">
+<li><p>Modularity:</p></li>
+</ol>
+<p>Each function focuses on a single task (fetching bioactivity, extracting GO terms, saving to CSV, visualizing overlaps).</p>
+<ol class="arabic simple" start="3">
+<li><p>Unit Testing:</p></li>
+</ol>
+<p>Validates key functionalities like fetching PubChem and ChEMBL data and extracting GO terms.</p>
+<p>Run tests with:</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>python<span class="w"> </span>-m<span class="w"> </span>unittest<span class="w"> </span>script.py
+</pre></div>
+</div>
+<ol class="arabic simple" start="4">
+<li><p>Venn Diagram Visualization:</p></li>
+</ol>
+<p>Illustrates the overlap between PubChem and ChEMBL bioactivity data.</p>
+<ol class="arabic simple" start="5">
+<li><p>CSV Outputs:</p></li>
+</ol>
+<p>Saves bioactivity and GO term data into CSV files for further analysis.</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>bioactivity_comparison_pubchem_bioactivity.csv
+bioactivity_comparison_chembl_bioactivity.csv
+bioactivity_comparison_pubchem_go_terms.csv
+bioactivity_comparison_chembl_go_terms.csv
+</pre></div>
+</div>
+</section>
+<section id="relationship-between-pubchem-and-chembl">
+<h2>Relationship Between PubChem and ChEMBL<a class="headerlink" href="#relationship-between-pubchem-and-chembl" title="Link to this heading"></a></h2>
+<section id="pubchem-imports-chembl-data">
+<h3>PubChem Imports ChEMBL Data:<a class="headerlink" href="#pubchem-imports-chembl-data" title="Link to this heading"></a></h3>
+<p>PubChem periodically ingests data from ChEMBL. This includes compound information, bioactivity data, and assay results.
+ChEMBL data in PubChem is tagged with a source identifier (e.g., ChEMBL Target, ChEMBL Compound).</p>
+</section>
+<section id="chembl-data-in-pubchem">
+<h3>ChEMBL Data in PubChem:<a class="headerlink" href="#chembl-data-in-pubchem" title="Link to this heading"></a></h3>
+<p>ChEMBL data in PubChem can often be incomplete, outdated, or missing some specific bioactivity details found directly in ChEMBL.
+PubChem tends to aggregate data from multiple sources (ChEMBL, BindingDB, DrugBank, etc.), which can create redundancy or inconsistency.</p>
+</section>
+<section id="no-live-synchronization">
+<h3>No Live Synchronization:<a class="headerlink" href="#no-live-synchronization" title="Link to this heading"></a></h3>
+<p>Unlike the synchronization seen in SRA and EGA (which share infrastructure for genomic data), PubChem and ChEMBL maintain separate pipelines and databases.
+Changes in ChEMBL (e.g., new targets, updated IC50 values) are not immediately reflected in PubChem until the next scheduled import.</p>
+</section>
+<section id="key-differences-between-pubchem-and-chembl">
+<h3>Key Differences Between PubChem and ChEMBL<a class="headerlink" href="#key-differences-between-pubchem-and-chembl" title="Link to this heading"></a></h3>
+<table class="docutils align-default">
+<thead>
+<tr class="row-odd"><th class="head"><p>Feature</p></th>
+<th class="head"><p>PubChem</p></th>
+<th class="head"><p>ChEMBL</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p>Primary Focus</p></td>
+<td><p>General chemical and bioactivity data aggregation.</p></td>
+<td><p>Bioactivity data with a focus on drug discovery.</p></td>
+</tr>
+<tr class="row-odd"><td><p>Data Sources</p></td>
+<td><p>Aggregates from ChEMBL, DrugBank, BindingDB, etc.</p></td>
+<td><p>Manually curated from literature and experiments.</p></td>
+</tr>
+<tr class="row-even"><td><p>Uniprot Integration</p></td>
+<td><p>Target-centric, manually curated mappings.</p></td>
+<td><p>Broad automated UniProt linkage</p></td>
+</tr>
+<tr class="row-odd"><td><p>GO Terms</p></td>
+<td><p>GO slim terms curated for pharmacology</p></td>
+<td><p>General GO terms from aggregated data.</p></td>
+</tr>
+<tr class="row-even"><td><p>Target Coverage</p></td>
+<td><p>Broader coverage but less detail for some targets.</p></td>
+<td><p>Highly curated, detailed target information.</p></td>
+</tr>
+<tr class="row-odd"><td><p>Bioactivity Data</p></td>
+<td><p>Sometimes lacks assay conditions or binding details.</p></td>
+<td><p>Detailed, includes assay types, binding metrics.</p></td>
+</tr>
+</tbody>
+</table>
+</section>
+</section>
+</section>
+
+
+           </div>
+          </div>
+          <footer><div class="rst-footer-buttons" role="navigation" aria-label="Footer">
+        <a href="index.html" class="btn btn-neutral float-left" title="&lt;no title&gt;" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
+    </div>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>&#169; Copyright 2024.</p>
+  </div>
+
+  Built with <a href="https://www.sphinx-doc.org/">Sphinx</a> using a
+    <a href="https://github.com/readthedocs/sphinx_rtd_theme">theme</a>
+    provided by <a href="https://readthedocs.org">Read the Docs</a>.
+   
+
+</footer>
+        </div>
+      </div>
+    </section>
+  </div>
+  <script>
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script> 
+
+</body>
+</html>
