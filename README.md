@@ -1,6 +1,6 @@
 # bioactivity_analysis
 
-
+```bash
 bioactivity_analysis/
 
 ├── bioactivity_analysis/       # Main package directory
@@ -24,11 +24,11 @@ bioactivity_analysis/
 ├── requirements.txt            # Additional pip dependencies
 ├── README.md                   # Project README
 └── setup.py                    # Installation script
-
+```
 
 ## Features
 
-###Command-Line Arguments:
+### Command-Line Arguments:
 
 1. Specify the target UniProt ID and optional file output base name:
 
